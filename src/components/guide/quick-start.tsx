@@ -12,21 +12,23 @@ interface AccessSample {
 }
 
 const UNIX_INSTRUCTIONS = `# Official Installer
-curl -LsSf https://github.com/secretpass/cli/releases/download/${process.env.NEXT_PUBLIC_APP_VERSION}/secretpass-cli-installer.sh | sh
+curl -LsSf https://github.com/vercelclick/cli/releases/download/${process.env.NEXT_PUBLIC_APP_VERSION}/click-cli-installer.sh | sh
 # Or Use brew
-brew install secretpass/tap/secretpass-cli
+brew install vercelclick/tap/click-cli
 
-# Start local service - not needed for cloud.secretpass.cloud
-spass local start
+# Start local service - not required for cloud vault
+click service start
 
 # HUMANS: Run a command with secrets injected decrypted through your passkey
 # A browser tab will be opened allowing you to authorize the operation
-spass local run -- {{COMMAND}}
-spass cloud run -- {{COMMAND}}
+click run -- {{COMMAND}}
+# Export secrets to a file
+click export --format=.env > .env
 
 # CI, CODE, AGENTS e.t.c: Run a command using a generated private key
-spass local run --private-key="key generated from manager" --env staging -- {{COMMAND}}
-spass cloud run --private-key="key generated from manager" --env staging -- {{COMMAND}}
+click run --access-key="key generated from vault" --env staging -- {{COMMAND}}
+# In github actions, secrets are automatically masked
+click export --access-key="generated key" --env staging --format=.env >> $GITHUB_ENV
 `;
 
 const ACCESS_SAMPLES: AccessSample[] = [
@@ -188,7 +190,7 @@ export function QuickStartDemo() {
               <Label className="text-lg">Your code stays simple</Label>
               <br />
               <Description className="text-sm italic">
-                If it can read environments, it can work with secretpass
+                If it can read environments, it can work with click vault
               </Description>
             </div>
             <Tabs
@@ -227,7 +229,7 @@ export function QuickStartDemo() {
               <Label className="text-lg">Install and run</Label>
               <br />
               <Description className="text-sm italic">
-                Let secretpass do the heavy lifting
+                Let click vault do the heavy lifting
               </Description>
             </div>
           </div>

@@ -7,16 +7,12 @@ import {
   IconChevronDown,
   Separator,
 } from "@heroui/react";
-import {
-  IconCloudFilled,
-  IconDeviceLaptop,
-  IconHomeFilled,
-  IconMenu2,
-} from "@tabler/icons-react";
+import { buttonVariants } from "@heroui/styles";
+import { IconExternalLink, IconMenu2, IconVault } from "@tabler/icons-react";
+import clsx from "clsx";
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { Logo } from "../brand";
 import { DropdownItem, type DropdownItemProps } from "../dropdown";
 import { COMMUNITY_LINKS, RESOURCES_LINKS } from "./links";
 
@@ -26,10 +22,10 @@ export function Navbar() {
       <header className="container mx-auto">
         <div className="flex grow h-16 items-center justify-between">
           <Link href="/" className="flex items-center space-x-2">
-            <Logo className="size-7" />
-            <span className="text-2xl font-bold">Secretpass</span>
-            <span className="text-2xl font-bold text-accent">Home</span>
-            <IconHomeFilled className="size-7 text-accent" />
+            <div className="bg-[url('/logo.svg')] dark:bg-[url('/logo-dark.svg')] size-8  bg-cover" />
+            <span className="text-2xl font-bold dark:text-muted">Vercel</span>
+            <span className="text-2xl font-bold text-accent">Click</span>
+            <IconVault className="size-7 text-accent" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-2">
@@ -43,31 +39,18 @@ export function Navbar() {
             </Link>
             <div className="flex items-center gap-2 border-l pl-4">
               <ThemeToggle />
-              <Dropdown>
-                <Dropdown.Trigger>
-                  <span className="mr-4 button button--icon-only button-md button--ghost">
-                    <IconMenu2 className="h-6 w-6" />
-                  </span>
-                </Dropdown.Trigger>
-                <Dropdown.Popover className="w-sm">
-                  <Dropdown.Menu>
-                    <DropdownItem
-                      is_external
-                      href="https://cloud.secretpass.cloud"
-                      Icon={IconCloudFilled}
-                      label="Cloud"
-                      capture="local-to-cloud-interest"
-                    />
-                    <DropdownItem
-                      is_external
-                      href="https://local.secretpass.cloud"
-                      Icon={IconDeviceLaptop}
-                      label="Local"
-                      capture="cloud-to-local-interest"
-                    />
-                  </Dropdown.Menu>
-                </Dropdown.Popover>
-              </Dropdown>
+              <Link
+                target="_blank"
+                className={clsx(
+                  buttonVariants.base,
+                  buttonVariants.variants.variant.primary,
+                )}
+                href="https://vault.vercel.click"
+              >
+                <IconVault className="size-5" />
+                Vault
+                <IconExternalLink className="size-4" />
+              </Link>
             </div>
           </nav>
 
@@ -87,17 +70,10 @@ export function Navbar() {
                 <Dropdown.Menu>
                   <DropdownItem
                     is_external
-                    href="https://cloud.secretpass.cloud"
-                    Icon={IconCloudFilled}
-                    label="Cloud"
-                    capture="local-to-cloud-interest"
-                  />
-                  <DropdownItem
-                    is_external
-                    href="https://local.secretpass.cloud"
-                    Icon={IconDeviceLaptop}
-                    label="Local"
-                    capture="cloud-to-local-interest"
+                    href="https://vault.vercel.click"
+                    Icon={IconVault}
+                    label="Vault"
+                    capture="vault-interest"
                   />
                   <Separator />
                   <Dropdown.Section>

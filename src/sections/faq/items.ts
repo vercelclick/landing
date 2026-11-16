@@ -7,7 +7,7 @@ export const FAQ_ITEMS: IFaqItem[] = [
   {
     title: "What is secret zero?",
     description:
-      "Secret zero is a master key that secret managers use to control access to secrets for you. Secretpass doesn't keep any keys that can be used to decrypt your secrets. Each user keeps their private keys, public keys are shared allowing one way encryption between users.",
+      "Secret zero is a master key that secret managers use to control access to secrets for you. Click vault does not store any keys that can be used to decrypt your secrets. Each user keeps their private keys, public keys are shared allowing one way encryption between users.",
   },
   {
     title: "Does secret support access by multiple team members?",
@@ -31,22 +31,22 @@ export const FAQ_ITEMS: IFaqItem[] = [
       "Keep dev, staging and production secrets separate through environments with access-control per environment with environment tagging allowing point in time access.",
   },
   {
-    title: "Can I manage multiple projects under secretpass?",
+    title: "Can I manage multiple projects under click vault?",
     description:
-      "A secretpass user can create and be invited to multiple projects, our paid workspace feature allows organizations to have multiple projects under a single workspace.",
+      "Yes, a click vault user can create and be invited to multiple projects, our paid workspace feature allows organizations to manage projects and teams under a single workspace.",
   },
   {
     title: "Can I give access to a bot, CI or server?",
     description:
-      "Yes, your code, AI agents and other systems still need to access secure systems, you can create limited scope private keys that allow access to specific environments and/or secrets",
+      "Yes, your code, AI agents and other systems still need to access secure systems, you can create limited scope access keys that allow access to specific environments and/or secrets",
   },
   {
-    title: "Can non technical users use technical Secretpass?",
+    title: "Can non technical users use technical click vault?",
     description:
       "We offer a user friendly and familiar web interface for both local and cloud offerings to reduce the cognitive load and mistakes associated with handling secrets in tty and config files.",
   },
   {
-    title: "Is Secretpass open-source?",
+    title: "Is click vault open-source?",
     description:
       "No, we share some of our code openly for verifiability while keeping IP protected features private, we'll keep expanding this as we grow.",
   },

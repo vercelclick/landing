@@ -11,7 +11,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
     case "docs":
       // TODO: Update this link to be automatically picked from posthog
       return NextResponse.redirect(
-        "https://github.com/secretpass/cli/releases",
+        "https://github.com/vercelclick/cli/releases",
       );
   }
 

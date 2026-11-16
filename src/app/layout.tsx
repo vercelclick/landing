@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist_Mono, Inter } from "next/font/google";
 import ThemeProvider from "@/components/shared/theme-provider";
 import "./globals.css";
@@ -15,49 +14,48 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Secretpass · Cloud",
+export const metadata = {
+  title: "Vercel Click Vault",
   description:
-    "Encrypt and decrypt your secrets with your passkey on your device, store encrypted secrets in your codebase or on a our hosted service.",
+    "Click uses passkeys to encrypt and decrypt secrets on your device offering a Just In Time secret injection model. Encrypted secrets are stored in your codebase or on a our hosted vault service.",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
       <head>
-        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
-        <title>Secretpass · Cloud</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <title>{metadata.title}</title>
+
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link
+          rel="icon"
+          href="/favicon-32x32.png"
+          type="image/png"
+          sizes="32x32"
+        />
+        <link
+          rel="icon"
+          href="/favicon-16x16.png"
+          type="image/png"
+          sizes="16x16"
+        />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
 
         {/* Core Open Graph Tags for Social Sharing Cards */}
-        <meta
-          property="og:title"
-          content="Passkey based non-custodial secret manager"
-        />
-        <meta
-          property="og:description"
-          content="Secretpass encrypts and decrypts your secrets with your passkey on your device; encrypted secrets are stored in your codebase or on a our cloud service."
-        />
-        <meta
-          property="og:image"
-          content="https://secretpass.cloud/secretpass.png"
-        />
-        <meta property="og:url" content="https://secretpass.cloud" />
+        <meta property="og:title" content={metadata.title} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content="https://vercel.click/logo.webp" />
+        <meta property="og:url" content="https://vercel.click" />
         <meta property="og:type" content="website" />
 
         {/* Specific Tags for X / Twitter Preview Cards */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta
-          name="twitter:title"
-          content="Passkey based non-custodial secret manager"
-        />
-        <meta
-          name="twitter:description"
-          content="Secretpass encrypts and decrypts your secrets with your passkey on your device; encrypted secrets are stored in your codebase or on a our cloud service."
-        />
-        <meta
-          name="twitter:image"
-          content="https://secretpass.cloud/secretpass.png"
-        />
+        <meta name="twitter:title" content={metadata.title} />
+        <meta name="twitter:description" content={metadata.description} />
+        <meta name="twitter:image" content="https://vercel.click/logo.webp" />
       </head>
       <body
         className={`${inter.variable} ${geistMono.variable} font-sans antialiased flex flex-col min-h-screen`}
@@ -72,7 +70,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
 
         <Script
           id="zsiqscript"
-          src="https://salesiq.zohopublic.com/widget?wc=siq39be25cb1ba4837af864485301cc78f1ad3fed6a3711ddd7b6ef45a0b16baa7d"
+          src="https://salesiq.zohopublic.com/widget?wc=siq5d1848122063dd034dfba681cae5fd35b7209c39e09cfd89aa062cf2578f125a"
           defer
         ></Script>
       </body>

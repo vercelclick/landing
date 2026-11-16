@@ -1,7 +1,7 @@
 # Business Source License 1.1
 
-**Licensor:** SecretPass Inc.  
-**Software:** SecretPass Cloud (Secret Management Engine and API)  
+**Licensor:** Click Secrets Inc.  
+**Software:** Click Vault (Secret Management Engine and API)  
 **Use Change Date:** 2030-01-01  
 **Change License:** Apache License, Version 2.0
 
@@ -50,4 +50,4 @@ IN NO EVENT SHALL THE LICENSOR OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAM
 
 ---
 
-_For commercial usage beyond the Additional Use Grants or enterprise dual-licensing, please contact sales@secretpass.cloud._
+_For commercial usage beyond the Additional Use Grants or enterprise dual-licensing, please contact sales@vercel.click._

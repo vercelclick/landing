@@ -11,7 +11,7 @@ import language_rust from "@shikijs/langs/rust";
 import language_shell from "@shikijs/langs/shellscript";
 import language_typescript from "@shikijs/langs/typescript";
 import theme_dark from "@shikijs/themes/tokyo-night";
-import { Suspense, use, useMemo } from "react";
+import { Suspense, use } from "react";
 import ShikiHighlighter, {
   createHighlighterCore,
   createJavaScriptRegexEngine,
