@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navigation/navbar";
 import { ArchitectureSection } from "@/sections/architecture";
+import { DemoSection } from "@/sections/demo";
 import { FAQSection } from "@/sections/faq";
 import { FeaturesSection } from "@/sections/features/features";
 import { HeroSection } from "@/sections/hero";
@@ -12,6 +13,7 @@ export default function Home() {
         <HeroSection />
         <ArchitectureSection />
         <FeaturesSection />
+        <DemoSection />
         <FAQSection />
       </main>
     </div>

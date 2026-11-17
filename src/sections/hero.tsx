@@ -18,7 +18,6 @@ import {
 } from "@tabler/icons-react";
 import clsx from "clsx";
 import { useState } from "react";
-import { QuickStartDemo } from "@/components/guide/quick-start";
 
 export function HeroSection() {
   const [copied, setCopied] = useState(false);
@@ -213,23 +212,6 @@ export function HeroSection() {
               </p>
             </div>
           </div>
-        </div>
-
-        {/* Quick Start interactive demo */}
-        <div className="w-full mt-16 text-left">
-          <div className="flex flex-col items-center text-center mb-8">
-            <span className="text-xs font-mono uppercase tracking-widest text-emerald-500 font-bold mb-2">
-              Instant Developer Workflow
-            </span>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-              Zero code changes. Works with any stack.
-            </h2>
-            <p className="text-sm sm:text-base text-muted mt-2 max-w-xl">
-              If your application reads environment variables, it already works
-              with Click Vault.
-            </p>
-          </div>
-          <QuickStartDemo />
         </div>
       </div>
     </section>
