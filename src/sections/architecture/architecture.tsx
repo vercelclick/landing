@@ -76,7 +76,7 @@ for (const recipient of authorizedContributors) {
     icon: IconServerOff,
     details: [
       "Click servers act solely as a blind sync and relay engine for encrypted bytes.",
-      "Choose your storage: sync encrypted blobs to Click Cloud Vault, or commit them directly to Git (.click/secrets/) for 100% local GitOps.",
+      "Local secrets are managed visually at vault.vercel.click by running 'click service start' and 'click attach', encrypting on-device into your .click/ repository.",
       "Because Click holds NO private keys, our servers CANNOT decrypt your secrets — even if compelled by subpoena, internal rogue action, or cloud breach.",
     ],
     codeSnippet: `// 3. Stored Ciphertext (in Git repository or Cloud Vault)

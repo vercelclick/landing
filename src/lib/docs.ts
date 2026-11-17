@@ -144,6 +144,89 @@ export function getDocsNavigation(): DocsCategoryGroup[] {
   }));
 }
 
+function parseInlineMarkdown(raw: string): string {
+  let text = raw.replace(/\\\|/g, "|");
+  // escape angle brackets so placeholders like <ENV> don't get eaten as unknown HTML tags
+  text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+  // markdown links [label](url)
+  text = text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, `<a href="$2">$1</a>`);
+  // inline code `code`
+  text = text.replace(/`([^`]+)`/g, `<code>$1</code>`);
+  // bold **text**
+  text = text.replace(/\*\*([^*]+)\*\*/g, `<strong>$1</strong>`);
+  // italic *text*
+  text = text.replace(/\*([^*]+)\*/g, `<em>$1</em>`);
+  return text;
+}
+
+export function processMarkdownTables(markdown: string): string {
+  const lines = markdown.split("\n");
+  const output: string[] = [];
+  let i = 0;
+
+  const delimiterRegex = /^\|?(\s*:?-{1,}:?\s*\|)+\s*:?-{1,}:?\s*\|?$/;
+
+  while (i < lines.length) {
+    const line = lines[i];
+    if (
+      line.trim().startsWith("|") &&
+      i + 1 < lines.length &&
+      delimiterRegex.test(lines[i + 1].trim())
+    ) {
+      const headerLine = line.trim();
+      const delimiterLine = lines[i + 1].trim();
+
+      const parseCells = (row: string) =>
+        row
+          .replace(/^\|/, "")
+          .replace(/\|$/, "")
+          .split(/(?<!\\)\|/)
+          .map((c) => c.trim());
+
+      const headers = parseCells(headerLine);
+      const delimiters = parseCells(delimiterLine);
+
+      const alignments = delimiters.map((d) => {
+        if (d.startsWith(":") && d.endsWith(":")) return "center";
+        if (d.endsWith(":")) return "right";
+        return "left";
+      });
+
+      const bodyRows: string[][] = [];
+      i += 2;
+      while (i < lines.length && lines[i].trim().startsWith("|")) {
+        const rowCells = parseCells(lines[i].trim());
+        bodyRows.push(rowCells);
+        i++;
+      }
+
+      let tableHtml = `<div class="overflow-x-auto my-6"><table class="docs-table">\n<thead>\n<tr>\n`;
+      headers.forEach((h, idx) => {
+        const align = alignments[idx] || "left";
+        tableHtml += `<th style="text-align: ${align}">${parseInlineMarkdown(h)}</th>\n`;
+      });
+      tableHtml += `</tr>\n</thead>\n<tbody>\n`;
+
+      bodyRows.forEach((row) => {
+        tableHtml += `<tr>\n`;
+        row.forEach((cell, idx) => {
+          const align = alignments[idx] || "left";
+          tableHtml += `<td style="text-align: ${align}">${parseInlineMarkdown(cell)}</td>\n`;
+        });
+        tableHtml += `</tr>\n`;
+      });
+
+      tableHtml += `</tbody>\n</table></div>\n`;
+      output.push(tableHtml);
+    } else {
+      output.push(line);
+      i++;
+    }
+  }
+
+  return output.join("\n");
+}
+
 export function getDocBySlug(slugPath: string): DocArticle | null {
   const normalizedSlug = slugPath.replace(/^\/+|\/+$/g, "");
   const manifestItem = STATIC_DOCS_MANIFEST.find(
@@ -167,7 +250,8 @@ export function getDocBySlug(slugPath: string): DocArticle | null {
 
     const rawContent = fs.readFileSync(filePath, "utf-8");
     const { data, body } = parseFrontmatter(rawContent);
-    const htmlContent = micromark(body);
+    const processedBody = processMarkdownTables(body);
+    const htmlContent = micromark(processedBody, { allowDangerousHtml: true });
 
     return {
       slug: manifestItem.slug,

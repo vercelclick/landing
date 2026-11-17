@@ -116,18 +116,18 @@ public class AppConfig {
 const CLI_WORKFLOWS = [
   {
     id: "local-dev",
-    label: "Local Development (Passkeys)",
+    label: "Local Dev & Web Vault",
     icon: IconFingerprint,
     description:
-      "Run your app locally with secrets injected on-the-fly. A biometric prompt (Touch ID / Passkey) decrypts credentials directly in memory.",
-    shellCode: `# 1. Install the Click CLI via Homebrew
-brew install vercelclick/tap/click-cli
+      "Start the local vault service and attach your project. Manage secrets visually at vault.vercel.click with on-device Passkey encryption, then run with JIT injection.",
+    shellCode: `# 1. Start the local vault service daemon
+click service start
 
-# 2. Run your app — Click triggers your Passkey and injects secrets into RAM
-click run -- npm run dev
+# 2. Attach your project — opens https://vault.vercel.click to manage secrets
+click attach
 
-# Optional: Export to a local .env file when needed by external tooling
-click export --format=.env > .env`,
+# 3. Run your app — Click triggers your Passkey and injects secrets into RAM
+click run -- npm run dev`,
   },
   {
     id: "ci-cd",
@@ -140,7 +140,7 @@ click export --format=.env > .env`,
 click run --access-key="\${{ secrets.CLICK_ACCESS_KEY }}" --env=staging -- npm test
 
 # Export directly into GitHub Actions environment with automatic masking
-click export --access-key="\${{ secrets.CLICK_ACCESS_KEY }}" --env=staging --format=.env >> $GITHUB_ENV`,
+click export --access-key="\${{ secrets.CLICK_ACCESS_KEY }}" --env=staging --format=gh-actions >> $GITHUB_ENV`,
   },
   {
     id: "ai-agents",

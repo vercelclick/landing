@@ -16,14 +16,15 @@ curl -LsSf https://github.com/vercelclick/cli/releases/download/${process.env.NE
 # Or Use brew
 brew install vercelclick/tap/click-cli
 
-# Start local service - not required for cloud vault
+# Start local service and attach project (managed via https://vault.vercel.click)
 click service start
+click attach
 
 # HUMANS: Run a command with secrets injected decrypted through your passkey
-# A browser tab will be opened allowing you to authorize the operation
+# A browser or biometric prompt will be opened allowing you to authorize the operation
 click run -- {{COMMAND}}
 # Export secrets to a file
-click export --format=.env > .env
+click export --format=dot-env > .env
 
 # CI, CODE, AGENTS e.t.c: Run a command using a generated private key
 click run --access-key="key generated from vault" --env staging -- {{COMMAND}}

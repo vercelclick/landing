@@ -219,3 +219,45 @@
   color: inherit;
   font-size: inherit;
 }
+
+.docs-prose table.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.docs-prose table.docs-table th {
+  padding: 0.75rem 1rem;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--foreground);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.docs-prose table.docs-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.docs-prose table.docs-table tr:last-child td {
+  border-bottom: none;
+}
+
+.docs-prose table.docs-table tbody tr:hover td {
+  background-color: var(--surface-secondary);
+}
+
+.docs-prose table.docs-table td code {
+  white-space: nowrap;
+}

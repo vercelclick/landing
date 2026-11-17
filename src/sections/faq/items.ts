@@ -129,10 +129,11 @@ export const FAQ_ITEMS: IFaqItem[] = [
     categoryLabel: "Storage",
     title: "How does Local GitOps storage work without a cloud backend?",
     summary:
-      "Encrypted secrets are stored right in your codebase under `.click/secrets/` and committed to Git.",
+      "Start the local service, attach your directory to vault.vercel.click, and commit encrypted secrets directly to Git.",
     description:
-      "Click allows you to store encrypted secrets directly inside your Git repository under `.click/secrets/`. Because each secret is encrypted on-device with the public keys of authorized contributors, it is 100% secure to commit them to public or private Git repositories. Teammates pull the repository and decrypt secrets locally with their Passkeys. This provides offline-capable, version-controlled secret management with zero cloud dependency.",
+      "Click lets you manage local secrets through the visual dashboard at vault.vercel.click by running a lightweight local daemon ('click service start'). Running 'click attach' connects the web interface directly to your local project over secure local HTTPS. All encryption and Passkey operations execute directly inside your browser on-device before writing encrypted JSON files into '.click/secrets/'. You can safely commit these encrypted files to public or private Git repositories, giving your team offline-first, version-controlled secret management with zero cloud hosting dependencies.",
     highlights: [
+      "Visual management via vault.vercel.click connecting to local service daemon",
       "Branch, merge, and PR review secrets right alongside application code",
       "100% offline-first: develop on airplanes and trains with zero internet connection",
       "Zero monthly cloud infrastructure cost for local teams",
@@ -142,12 +143,18 @@ export const FAQ_ITEMS: IFaqItem[] = [
       value: "Encrypted Git-versioned JSON (.click/secrets/)",
     },
     codeSnippet: {
-      filename: "git-commit-workflow.sh",
-      code: `# Commit encrypted secrets safely to Git:
+      filename: "local-gitops-workflow.sh",
+      code: `# 1. Start local service and attach project:
+click service start
+click attach
+# Automatically opens https://vault.vercel.click to manage secrets
+
+# 2. Commit encrypted secrets safely to Git:
 git add .click/secrets/
 git commit -m "Update production database credentials (encrypted)"
-# Teammates pull and run immediately:
-click run -- npm start`,
+
+# 3. Run your app with Just-In-Time Passkey injection:
+click run -- npm run dev`,
     },
   },
   {
