@@ -9,8 +9,8 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <main className="mx-auto">
-        <ArchitectureSection />
         <HeroSection />
+        <ArchitectureSection />
         <FeaturesSection />
         <FAQSection />
       </main>
