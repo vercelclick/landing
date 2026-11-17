@@ -43,5 +43,6 @@ dist
 next-env.d.ts
 /.open-next/
 /.wrangler/
-.vinext/
 .cloudflare/
+
+src/lib/generated-docs.ts
