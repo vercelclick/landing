@@ -187,8 +187,9 @@ export function DemoSection() {
           If It Reads Environments, It Just Works
         </h2>
         <p className="mt-4 text-lg sm:text-xl text-muted max-w-2xl">
-          Click doesn&apos;t force proprietary SDKs or complex wrappers into your code.
-          Keep using standard language libraries — Click injects decrypted secrets straight into process memory.
+          Click doesn&apos;t force proprietary SDKs or complex wrappers into
+          your code. Keep using standard language libraries — Click injects
+          decrypted secrets straight into process memory.
         </p>
       </div>
 
@@ -199,9 +200,12 @@ export function DemoSection() {
             <IconCpu className="size-5" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-foreground">Zero SDK Lock-In</h4>
+            <h4 className="text-sm font-semibold text-foreground">
+              Zero SDK Lock-In
+            </h4>
             <p className="text-xs text-muted mt-1 leading-relaxed">
-              Native <code className="text-[11px] font-mono">process.env</code> or <code className="text-[11px] font-mono">os.getenv</code>.
+              Native <code className="text-[11px] font-mono">process.env</code>{" "}
+              or <code className="text-[11px] font-mono">os.getenv</code>.
             </p>
           </div>
         </div>
@@ -211,7 +215,9 @@ export function DemoSection() {
             <IconFingerprint className="size-5" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-foreground">Biometric Unlock</h4>
+            <h4 className="text-sm font-semibold text-foreground">
+              Biometric Unlock
+            </h4>
             <p className="text-xs text-muted mt-1 leading-relaxed">
               Touch ID or Passkey decrypts secrets in milliseconds.
             </p>
@@ -223,7 +229,9 @@ export function DemoSection() {
             <IconShieldCheck className="size-5" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-foreground">Zero Disk Residue</h4>
+            <h4 className="text-sm font-semibold text-foreground">
+              Zero Disk Residue
+            </h4>
             <p className="text-xs text-muted mt-1 leading-relaxed">
               Secrets live strictly in ephemeral RAM, never plain on disk.
             </p>
@@ -235,7 +243,9 @@ export function DemoSection() {
             <IconRobot className="size-5" />
           </div>
           <div>
-            <h4 className="text-sm font-semibold text-foreground">CI & Agent Scoped</h4>
+            <h4 className="text-sm font-semibold text-foreground">
+              CI & Agent Scoped
+            </h4>
             <p className="text-xs text-muted mt-1 leading-relaxed">
               Masked stdout/stderr logs and environment-scoped keys.
             </p>
@@ -263,7 +273,9 @@ export function DemoSection() {
             <div className="mb-4 overflow-x-auto pb-1">
               <Tabs
                 selectedKey={selectedLanguage}
-                onSelectionChange={(key) => setSelectedLanguage(key as CodeLanguage)}
+                onSelectionChange={(key) =>
+                  setSelectedLanguage(key as CodeLanguage)
+                }
                 className="overflow-x-auto"
               >
                 <Tabs.ListContainer>
@@ -290,8 +302,23 @@ export function DemoSection() {
             {/* Code Highlighter */}
             <div className="rounded-2xl border border-border overflow-hidden bg-zinc-950 shadow-inner">
               <div className="flex items-center justify-between px-4 py-2.5 bg-zinc-900 border-b border-zinc-800 text-xs text-zinc-400 font-mono">
-                <span>app.{currentSample.language === CodeLanguage.Typescript ? "ts" : currentSample.language === CodeLanguage.Python ? "py" : currentSample.language === CodeLanguage.Golang ? "go" : currentSample.language === CodeLanguage.Rust ? "rs" : currentSample.language === CodeLanguage.CPlusPlus ? "cpp" : "java"}</span>
-                <span className="text-emerald-400 text-[11px]">No Click imports needed</span>
+                <span>
+                  app.
+                  {currentSample.language === CodeLanguage.Typescript
+                    ? "ts"
+                    : currentSample.language === CodeLanguage.Python
+                      ? "py"
+                      : currentSample.language === CodeLanguage.Golang
+                        ? "go"
+                        : currentSample.language === CodeLanguage.Rust
+                          ? "rs"
+                          : currentSample.language === CodeLanguage.CPlusPlus
+                            ? "cpp"
+                            : "java"}
+                </span>
+                <span className="text-emerald-400 text-[11px]">
+                  No Click imports needed
+                </span>
               </div>
               <CodeHighlighter
                 code={currentSample.code}
@@ -309,7 +336,10 @@ export function DemoSection() {
                   Step 2: Just-In-Time Execution
                 </span>
                 <h3 className="text-lg font-bold text-foreground">
-                  Run with <code className="text-sm font-mono bg-surface px-1.5 py-0.5 rounded border border-border">click run</code>
+                  Run with{" "}
+                  <code className="text-sm font-mono bg-surface px-1.5 py-0.5 rounded border border-border">
+                    click run
+                  </code>
                 </h3>
               </div>
             </div>
@@ -330,7 +360,9 @@ export function DemoSection() {
                         : "border-border bg-surface/50 text-muted hover:bg-surface hover:text-foreground"
                     }`}
                   >
-                    <WfIcon className={`size-3.5 ${isActive ? "text-emerald-500" : "text-muted"}`} />
+                    <WfIcon
+                      className={`size-3.5 ${isActive ? "text-emerald-500" : "text-muted"}`}
+                    />
                     {wf.label}
                   </button>
                 );
@@ -349,7 +381,9 @@ export function DemoSection() {
                   <span className="size-2.5 rounded-full bg-red-500/80" />
                   <span className="size-2.5 rounded-full bg-amber-500/80" />
                   <span className="size-2.5 rounded-full bg-emerald-500/80" />
-                  <span className="ml-1 text-[11px] text-zinc-400">Terminal — Just-In-Time Injection</span>
+                  <span className="ml-1 text-[11px] text-zinc-400">
+                    Terminal — Just-In-Time Injection
+                  </span>
                 </div>
                 <button
                   type="button"
@@ -381,7 +415,11 @@ export function DemoSection() {
             <div className="mt-4 p-3 rounded-xl bg-emerald-500/5 border border-emerald-500/20 flex items-center gap-3">
               <IconLockOpen className="size-5 text-emerald-500 shrink-0" />
               <div className="text-xs text-foreground">
-                <strong className="text-emerald-600 dark:text-emerald-400">Memory-Only Injection:</strong> Secrets exist in memory for milliseconds and vanish the instant your process terminates.
+                <strong className="text-emerald-600 dark:text-emerald-400">
+                  Memory-Only Injection:
+                </strong>{" "}
+                Secrets exist in memory for milliseconds and vanish the instant
+                your process terminates.
               </div>
             </div>
           </div>

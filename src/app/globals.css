@@ -101,3 +101,121 @@
 :root[data-theme="dark"] {
   @apply dark-theme;
 }
+
+/* Docs Markdown Prose Styling */
+.docs-prose h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+}
+
+.docs-prose h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--foreground);
+}
+
+.docs-prose h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--foreground);
+}
+
+.docs-prose p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.docs-prose strong {
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+.docs-prose a {
+  color: oklch(73.29% 0.198 147.92);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: opacity 0.2s;
+}
+
+.docs-prose a:hover {
+  opacity: 0.85;
+}
+
+.docs-prose ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.docs-prose ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.docs-prose li {
+  margin-bottom: 0.35rem;
+  line-height: 1.6;
+}
+
+.docs-prose hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+.docs-prose blockquote {
+  border-left: 3px solid oklch(73.29% 0.198 147.92);
+  padding-left: 1rem;
+  font-style: italic;
+  color: var(--muted);
+  margin: 1.25rem 0;
+}
+
+.docs-prose code:not(pre code) {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.825rem;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.375rem;
+  color: var(--foreground);
+}
+
+.docs-prose pre {
+  background-color: #09090b;
+  color: #f4f4f5;
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  overflow-x: auto;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.825rem;
+  line-height: 1.6;
+  margin: 1.25rem 0;
+}
+
+.docs-prose pre code {
+  background: transparent;
+  padding: 0;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+}

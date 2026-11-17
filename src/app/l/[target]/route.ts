@@ -9,10 +9,7 @@ export async function GET(_request: NextRequest, context: RouteContext) {
 
   switch (target) {
     case "docs":
-      // TODO: Update this link to be automatically picked from posthog
-      return NextResponse.redirect(
-        "https://github.com/vercelclick/cli/releases",
-      );
+      return NextResponse.redirect(new URL("/docs", _request.url));
   }
 
   // Redirect to home if the social network is unknown

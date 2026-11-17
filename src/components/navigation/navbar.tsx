@@ -8,7 +8,12 @@ import {
   Separator,
 } from "@heroui/react";
 import { buttonVariants } from "@heroui/styles";
-import { IconExternalLink, IconMenu2, IconVault } from "@tabler/icons-react";
+import {
+  IconBook2,
+  IconExternalLink,
+  IconMenu2,
+  IconVault,
+} from "@tabler/icons-react";
 import clsx from "clsx";
 import Link from "next/link";
 import type { ReactNode } from "react";
@@ -29,12 +34,15 @@ export function Navbar() {
           </Link>
 
           <nav className="hidden md:flex items-center gap-2">
-            <Link href="#features">
+            <Link href="/#features">
               <Button variant="ghost">Features</Button>
+            </Link>
+            <Link href="/docs">
+              <Button variant="ghost">Docs</Button>
             </Link>
             <LinkDropDown items={COMMUNITY_LINKS} label="Community" />
             <LinkDropDown items={RESOURCES_LINKS} label="Resources" />
-            <Link href="#faq">
+            <Link href="/#faq">
               <Button variant="ghost">FAQ</Button>
             </Link>
             <div className="flex items-center gap-2 border-l pl-4">
@@ -75,6 +83,11 @@ export function Navbar() {
                     Icon={IconVault}
                     label="Vault"
                     capture="vault-interest"
+                  />
+                  <DropdownItem
+                    href="/docs"
+                    Icon={IconBook2}
+                    label="Documentation"
                   />
                   <Separator />
                   <Dropdown.Section>

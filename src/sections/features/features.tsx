@@ -118,7 +118,9 @@ export function FeaturesSection() {
           Engineered for Zero Trust. Built for Velocity.
         </h2>
         <p className="mt-4 text-lg sm:text-xl text-muted max-w-2xl">
-          From solo developers committing encrypted secrets to Git, to multi-product enterprise teams orchestrating AI agents across environments.
+          From solo developers committing encrypted secrets to Git, to
+          multi-product enterprise teams orchestrating AI agents across
+          environments.
         </p>
       </div>
 
@@ -152,8 +154,13 @@ export function FeaturesSection() {
               <div className="pt-4 border-t border-border/60">
                 <ul className="space-y-2">
                   {feature.bullets.map((bullet) => (
-                    <li key={bullet} className="flex items-start gap-2 text-xs text-foreground/80">
-                      <span className="text-emerald-500 font-bold shrink-0">✓</span>
+                    <li
+                      key={bullet}
+                      className="flex items-start gap-2 text-xs text-foreground/80"
+                    >
+                      <span className="text-emerald-500 font-bold shrink-0">
+                        ✓
+                      </span>
                       <span>{bullet}</span>
                     </li>
                   ))}

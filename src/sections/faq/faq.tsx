@@ -82,7 +82,9 @@ export function FAQSection() {
           Frequently Asked Questions
         </h2>
         <p className="mt-4 text-lg sm:text-xl text-muted max-w-2xl">
-          Everything you need to know about our Zero-Knowledge architecture, Passkey hardware encryption, and how Click compares to traditional secret managers.
+          Everything you need to know about our Zero-Knowledge architecture,
+          Passkey hardware encryption, and how Click compares to traditional
+          secret managers.
         </p>
 
         {/* Search Bar */}
@@ -140,7 +142,8 @@ export function FAQSection() {
               No matching questions found
             </h3>
             <p className="text-xs text-muted mt-1">
-              Try adjusting your search query or clear the filter to see all questions.
+              Try adjusting your search query or clear the filter to see all
+              questions.
             </p>
             <button
               type="button"
@@ -193,7 +196,9 @@ export function FAQSection() {
 
                   <div
                     className={`p-2 rounded-xl bg-surface border border-border/80 text-muted transition-transform duration-200 shrink-0 mt-0.5 ${
-                      isExpanded ? "rotate-180 text-emerald-500 border-emerald-500/30" : ""
+                      isExpanded
+                        ? "rotate-180 text-emerald-500 border-emerald-500/30"
+                        : ""
                     }`}
                   >
                     <IconChevronDown className="size-4" />
@@ -288,7 +293,9 @@ export function FAQSection() {
           Still have questions about our cryptography or deployment?
         </h3>
         <p className="mt-2 text-sm text-muted max-w-xl mx-auto">
-          Our engineering team is active in our community channels and ready to answer deep technical questions about WebAuthn PRF, enterprise compliance, and migration from Doppler or Infisical.
+          Our engineering team is active in our community channels and ready to
+          answer deep technical questions about WebAuthn PRF, enterprise
+          compliance, and migration from Doppler or Infisical.
         </p>
 
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">

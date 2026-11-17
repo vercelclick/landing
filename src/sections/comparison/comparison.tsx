@@ -212,8 +212,9 @@ export function ComparisonSection() {
           Why Teams Choose Click Over Traditional Vaults
         </h2>
         <p className="mt-4 text-lg sm:text-xl text-muted max-w-2xl">
-          Most secret managers store your keys and decrypt your data on their servers.
-          Click ensures your plaintext never leaves your physical hardware.
+          Most secret managers store your keys and decrypt your data on their
+          servers. Click ensures your plaintext never leaves your physical
+          hardware.
         </p>
       </div>
 
@@ -304,7 +305,8 @@ export function ComparisonSection() {
               The Fundamental Difference: Who Holds The Keys?
             </h4>
             <p className="text-xs text-muted mt-0.5">
-              Traditional platforms decrypt secrets in memory on their cloud servers. Click moves 100% of decryption to your hardware.
+              Traditional platforms decrypt secrets in memory on their cloud
+              servers. Click moves 100% of decryption to your hardware.
             </p>
           </div>
         </div>

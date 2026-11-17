@@ -8,9 +8,7 @@
       {
         "name": "production",
         "level": "ReadOnly",
-        "secrets": [
-          "$ALL$"
-        ]
+        "secrets": ["$ALL$"]
       }
     ],
     "public_key": "L7KME2E4Wv4ACass9mQjF1Jv4LwF-GYdP9FKFOhG5gw",
