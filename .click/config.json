@@ -1,0 +1,54 @@
+{
+  "project": {
+    "id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+    "name": "Vercel Click Landing Page",
+    "description": "Secrets used by click to deploy the website to workers",
+    "updated_at": "2026-11-16T22:25:07.223137Z"
+  },
+  "environments": [
+    {
+      "name": "development",
+      "project_id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+      "description": "For testing by developers before moving to QC",
+      "tags": [],
+      "updated_at": "2026-11-16T22:25:07.223140Z",
+      "created_at": "2026-11-16T22:25:07.223140Z"
+    },
+    {
+      "name": "staging",
+      "project_id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+      "description": "For testing by QAs before promoting to production",
+      "tags": [],
+      "updated_at": "2026-11-16T22:25:07.223141Z",
+      "created_at": "2026-11-16T22:25:07.223141Z"
+    },
+    {
+      "name": "production",
+      "project_id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+      "description": "Prod secrets, heavily restricted",
+      "tags": [],
+      "updated_at": "2026-11-16T22:25:07.223142Z",
+      "created_at": "2026-11-16T22:25:07.223142Z"
+    }
+  ],
+  "contributors": [
+    [
+      {
+        "id": "01a1e4ca-7533-745b-a498-cd308276ee59",
+        "email": "me@billcountry.tech",
+        "name": "Billcountry Mwaniki",
+        "key_salt": "xTVquF5y9J-uwRmxPxg5rn1aIMKfMQjT_4JCCbVF794",
+        "updated_at": "2026-11-16T14:38:19.460156Z"
+      },
+      {
+        "id": "01a1e676-ca97-70f9-a213-5b3cf8f8cd4e",
+        "user_id": "01a1e4ca-7533-745b-a498-cd308276ee59",
+        "status": "Active",
+        "project_id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+        "role": "Admin",
+        "access": [],
+        "updated_at": "2026-11-16T22:25:07.223145Z"
+      }
+    ]
+  ]
+}

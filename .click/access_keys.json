@@ -1,0 +1,20 @@
+[
+  {
+    "id": "71a98154-c1a7-5aa5-afc2-4ed1b87fa5c4",
+    "name": "GITHUB_ACTIONS_DEPLOYMENT",
+    "description": "Key used to run deployment on github actions",
+    "project_id": "01a1e676-ca97-70f9-a213-5b3b7a60c045",
+    "access": [
+      {
+        "name": "production",
+        "level": "ReadOnly",
+        "secrets": [
+          "$ALL$"
+        ]
+      }
+    ],
+    "public_key": "L7KME2E4Wv4ACass9mQjF1Jv4LwF-GYdP9FKFOhG5gw",
+    "generated_by": "me@billcountry.tech",
+    "generated_on": "2026-11-17T02:47:06.560377Z"
+  }
+]
