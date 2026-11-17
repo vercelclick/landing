@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/navigation/navbar";
+import { ArchitectureSection } from "@/sections/architecture";
 import { FAQSection } from "@/sections/faq";
 import { FeaturesSection } from "@/sections/features/features";
 import { HeroSection } from "@/sections/hero";
@@ -8,6 +9,7 @@ export default function Home() {
     <div className="min-h-screen">
       <Navbar />
       <main className="mx-auto">
+        <ArchitectureSection />
         <HeroSection />
         <FeaturesSection />
         <FAQSection />

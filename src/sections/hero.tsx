@@ -7,7 +7,6 @@ import {
   IconVault,
 } from "@tabler/icons-react";
 import clsx from "clsx";
-import { QuickStartDemo } from "@/components/guide/quick-start";
 
 export function HeroSection() {
   return (
@@ -28,7 +27,7 @@ export function HeroSection() {
         </a>
 
         <h1 className="text-4xl text-accent dark:text-muted">
-          One Vault, Centralized Secrets, Human or AI,
+          Zero-knowledge Vault, Centralized Secrets, Human or AI,
         </h1>
         <h2 className="text-3xl text-accent dark:text-muted mt-4">
           Locked behind your Fingerprint.
@@ -70,13 +69,6 @@ export function HeroSection() {
         <p className="my-6 font-mono text-xs text-muted [animation-delay:400ms]">
           Multi-User · No Secret Zero · Local Storage
         </p>
-
-        <h1 className="mt-8 max-w-3xl text-2xl font-light tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
-          Get a quick start.
-        </h1>
-        <div className="text-left w-full my-6">
-          <QuickStartDemo />
-        </div>
       </div>
     </section>
   );

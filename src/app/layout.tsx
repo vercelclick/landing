@@ -16,8 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: "Vercel Click Vault",
-  description:
-    "Click uses passkeys to encrypt and decrypt secrets on your device offering a Just In Time secret injection model. Encrypted secrets are stored in your codebase or on a our hosted vault service.",
+  description: "Zero-knowledge secure vault encrypted on-device via passkeys",
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
