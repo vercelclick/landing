@@ -39,18 +39,19 @@ export function Navbar() {
             </Link>
             <div className="flex items-center gap-2 border-l pl-4">
               <ThemeToggle />
-              <Link
+              <a
                 target="_blank"
                 className={clsx(
                   buttonVariants.base,
                   buttonVariants.variants.variant.primary,
                 )}
                 href="https://vault.vercel.click"
+                rel="noopener noreferrer"
               >
                 <IconVault className="size-5" />
                 Vault
                 <IconExternalLink className="size-4" />
-              </Link>
+              </a>
             </div>
           </nav>
 

@@ -7,14 +7,13 @@ import {
   IconVault,
 } from "@tabler/icons-react";
 import clsx from "clsx";
-import Link from "next/link";
 import { QuickStartDemo } from "@/components/guide/quick-start";
 
 export function HeroSection() {
   return (
     <section id="hero">
       <div className="container mx-auto relative flex flex-col items-center pt-24 pb-12 text-center md:pt-32 md:pb-16">
-        <Link
+        <a
           href="https://github.com/vercelclick"
           target="_blank"
           rel="noopener noreferrer"
@@ -26,7 +25,7 @@ export function HeroSection() {
               Transparent Source Code; Business Source License 1.1
             </Chip.Label>
           </Chip>
-        </Link>
+        </a>
 
         <h1 className="text-4xl text-accent dark:text-muted">
           One Vault, Centralized Secrets, Human or AI,
@@ -41,7 +40,7 @@ export function HeroSection() {
           stored in your codebase or on a our hosted vault service.
         </p>
         <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          <Link
+          <a
             className={clsx(
               buttonVariants.base,
               buttonVariants.variants.variant.primary,
@@ -52,9 +51,9 @@ export function HeroSection() {
             <IconVault className="size-5" />
             Go to Vault
             <IconExternalLink className="ml-2 h-4 w-4" />
-          </Link>
+          </a>
 
-          <Link
+          <a
             href="https://github.com/vercelclick/cli/releases"
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +65,7 @@ export function HeroSection() {
           >
             <IconBook2 className="mr-2 h-4 w-4" />
             Read the docs
-          </Link>
+          </a>
         </div>
         <p className="my-6 font-mono text-xs text-muted [animation-delay:400ms]">
           Multi-User · No Secret Zero · Local Storage
