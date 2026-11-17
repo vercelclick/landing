@@ -1,7 +1,5 @@
 "use client";
-import { AnalyticsExtensions } from "posthog-js/dist/extension-bundles";
-import { PostHog } from "posthog-js/dist/module.slim.no-external";
-import "posthog-js/dist/exception-autocapture";
+import { PostHog } from "posthog-js";
 import {
   createContext,
   type ReactNode,
@@ -26,12 +24,8 @@ export function AnalyticsProvider({ children }: { children: ReactNode }) {
       ui_host: "https://eu.i.posthog.com",
       api_host: "https://m.vercel.click",
       defaults: "2026-06-25",
-      person_profiles: "identified_only",
+      person_profiles: "always",
       persistence: "localStorage",
-      disable_external_dependency_loading: true,
-      __extensionClasses: {
-        ...AnalyticsExtensions,
-      },
       loaded: () => {
         setClient(posthog);
       },

@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import {
   IconBrandDiscord,
   IconBrandGithub,
@@ -13,6 +12,7 @@ import {
   IconShieldCheck,
   IconVault,
 } from "@tabler/icons-react";
+import Link from "next/link";
 import { COMMUNITY_LINKS, RESOURCES_LINKS } from "./links";
 
 export function Footer() {
@@ -43,7 +43,7 @@ export function Footer() {
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-xl bg-foreground text-background font-semibold text-xs sm:text-sm whitespace-nowrap hover:opacity-90 transition-opacity cursor-pointer shrink-0"
           >
-            Launch Cloud Vault &rarr;
+            Launch Vault &rarr;
           </a>
         </div>
 

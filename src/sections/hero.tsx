@@ -106,7 +106,7 @@ export function HeroSection() {
             rel="noopener noreferrer"
           >
             <IconVault className="size-5" />
-            Launch Cloud Vault
+            Launch Vault
             <IconExternalLink className="ml-1 size-4 opacity-80" />
           </a>
 

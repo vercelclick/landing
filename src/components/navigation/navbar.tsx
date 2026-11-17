@@ -1,12 +1,6 @@
 "use client";
 
-import {
-  Button,
-  Dropdown,
-  Header,
-  IconChevronDown,
-  Separator,
-} from "@heroui/react";
+import { Button, Dropdown, Header, Separator } from "@heroui/react";
 import { buttonVariants } from "@heroui/styles";
 import {
   IconBook2,
@@ -16,10 +10,9 @@ import {
 } from "@tabler/icons-react";
 import clsx from "clsx";
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { DropdownItem, type DropdownItemProps } from "../dropdown";
-import { COMMUNITY_LINKS, RESOURCES_LINKS } from "./links";
+import { DropdownItem } from "../dropdown";
+import { COMMUNITY_LINKS } from "./links";
 
 export function Navbar() {
   return (
@@ -37,11 +30,12 @@ export function Navbar() {
             <Link href="/#features">
               <Button variant="ghost">Features</Button>
             </Link>
+            <Link href="/#demo">
+              <Button variant="ghost">Product</Button>
+            </Link>
             <Link href="/docs">
               <Button variant="ghost">Docs</Button>
             </Link>
-            <LinkDropDown items={COMMUNITY_LINKS} label="Community" />
-            <LinkDropDown items={RESOURCES_LINKS} label="Resources" />
             <Link href="/#faq">
               <Button variant="ghost">FAQ</Button>
             </Link>
@@ -85,20 +79,26 @@ export function Navbar() {
                     capture="vault-interest"
                   />
                   <DropdownItem
+                    href="/#demo"
+                    Icon={IconBook2}
+                    label="Product"
+                  />
+
+                  <DropdownItem
+                    href="/#features"
+                    Icon={IconBook2}
+                    label="Features"
+                  />
+                  <DropdownItem
                     href="/docs"
                     Icon={IconBook2}
                     label="Documentation"
                   />
+                  <DropdownItem href="/#faq" Icon={IconBook2} label="FAQ" />
                   <Separator />
                   <Dropdown.Section>
                     <Header>Community</Header>
                     {COMMUNITY_LINKS.map((item) => (
-                      <DropdownItem key={item.href} {...item} />
-                    ))}
-                  </Dropdown.Section>
-                  <Dropdown.Section>
-                    <Header>Resources</Header>
-                    {RESOURCES_LINKS.map((item) => (
                       <DropdownItem key={item.href} {...item} />
                     ))}
                   </Dropdown.Section>
@@ -109,31 +109,5 @@ export function Navbar() {
         </div>
       </header>
     </nav>
-  );
-}
-
-function LinkDropDown({
-  items,
-  label,
-}: {
-  items: DropdownItemProps[];
-  label: ReactNode;
-}) {
-  return (
-    <Dropdown>
-      <Dropdown.Trigger>
-        <div className="button button--md button--ghost w-full md:w-auto justify-start">
-          {label}
-          <IconChevronDown />
-        </div>
-      </Dropdown.Trigger>
-      <Dropdown.Popover>
-        <Dropdown.Menu>
-          {items.map((item) => (
-            <DropdownItem key={item.href} {...item} />
-          ))}
-        </Dropdown.Menu>
-      </Dropdown.Popover>
-    </Dropdown>
   );
 }
