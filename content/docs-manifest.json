@@ -1,0 +1,42 @@
+[
+  {
+    "categoryPath": "getting-started",
+    "filename": "quickstart.md",
+    "slug": "getting-started/quickstart"
+  },
+  {
+    "categoryPath": "getting-started",
+    "filename": "architecture.md",
+    "slug": "getting-started/architecture"
+  },
+  {
+    "categoryPath": "core-concepts",
+    "filename": "passkeys.md",
+    "slug": "core-concepts/passkeys"
+  },
+  {
+    "categoryPath": "core-concepts",
+    "filename": "jit-injection.md",
+    "slug": "core-concepts/jit-injection"
+  },
+  {
+    "categoryPath": "storage",
+    "filename": "gitops-local.md",
+    "slug": "storage/gitops-local"
+  },
+  {
+    "categoryPath": "storage",
+    "filename": "cloud-vault.md",
+    "slug": "storage/cloud-vault"
+  },
+  {
+    "categoryPath": "automation",
+    "filename": "ci-cd.md",
+    "slug": "automation/ci-cd"
+  },
+  {
+    "categoryPath": "cli",
+    "filename": "commands.md",
+    "slug": "cli/commands"
+  }
+]

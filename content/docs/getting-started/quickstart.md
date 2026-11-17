@@ -44,7 +44,7 @@ Click uses a lightweight background service to bridge between your local `.click
 click service start
 ```
 
-> **Using macOS Safari?** Safari blocks secure HTTPS web pages from communicating with local services by default. Run this one-time command to install and trust the local HTTPS certificate:
+> **Using macOS?** Safari and other browsers may block secure HTTPS web pages from communicating with local services by default. Run this one-time command to install and trust the local HTTPS certificate:
 > ```bash
 > click service install-certificates
 > ```

@@ -48,18 +48,4 @@ export const RESOURCES_LINKS: DropdownItemProps[] = [
     capture: "resource-interest-docs",
     is_external: false,
   },
-  {
-    label: "Blog",
-    Icon: IconBrandMedium,
-    href: "https://vercel.click/l/blog",
-    capture: "resource-interest-blog",
-    is_external: true,
-  },
-  {
-    label: "Knowledge Base",
-    Icon: IconBook,
-    href: "https://vercel.click/l/kb",
-    capture: "resource-interest-kb",
-    is_external: true,
-  },
 ];

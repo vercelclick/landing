@@ -1,6 +1,5 @@
 "use client";
 
-import { useMemo, useState } from "react";
 import {
   IconBolt,
   IconBook2,
@@ -19,10 +18,12 @@ import {
   IconUsers,
   IconX,
 } from "@tabler/icons-react";
+import Link from "next/link";
+import { useMemo, useState } from "react";
 import {
-  type FaqCategory,
   FAQ_CATEGORIES,
   FAQ_ITEMS,
+  type FaqCategory,
   type IFaqItem,
 } from "./items";
 
@@ -319,15 +320,13 @@ export function FAQSection() {
             Join our Discord
           </a>
 
-          <a
-            href="https://vercel.click/l/docs"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/docs"
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-foreground text-background text-xs font-semibold hover:opacity-90 transition-opacity cursor-pointer"
           >
             <IconBook2 className="size-4" />
             Browse Technical Docs &rarr;
-          </a>
+          </Link>
         </div>
       </div>
     </section>

@@ -1,6 +1,6 @@
-import fs from "node:fs";
-import path from "node:path";
 import { micromark } from "micromark";
+import manifest from "../../content/docs-manifest.json";
+import { docsContent } from "./generated-docs";
 
 export interface DocMetadata {
   slug: string; // e.g. "getting-started/quickstart"
@@ -20,55 +20,7 @@ export interface DocsCategoryGroup {
   items: DocMetadata[];
 }
 
-const DOCS_DIR = path.join(process.cwd(), "content", "docs");
-
-// Static catalog of documents with their file paths
-const STATIC_DOCS_MANIFEST: {
-  categoryPath: string;
-  filename: string;
-  slug: string;
-}[] = [
-  {
-    categoryPath: "getting-started",
-    filename: "quickstart.md",
-    slug: "getting-started/quickstart",
-  },
-  {
-    categoryPath: "getting-started",
-    filename: "architecture.md",
-    slug: "getting-started/architecture",
-  },
-  {
-    categoryPath: "core-concepts",
-    filename: "passkeys.md",
-    slug: "core-concepts/passkeys",
-  },
-  {
-    categoryPath: "core-concepts",
-    filename: "jit-injection.md",
-    slug: "core-concepts/jit-injection",
-  },
-  {
-    categoryPath: "storage",
-    filename: "gitops-local.md",
-    slug: "storage/gitops-local",
-  },
-  {
-    categoryPath: "storage",
-    filename: "cloud-vault.md",
-    slug: "storage/cloud-vault",
-  },
-  {
-    categoryPath: "automation",
-    filename: "ci-cd.md",
-    slug: "automation/ci-cd",
-  },
-  {
-    categoryPath: "cli",
-    filename: "commands.md",
-    slug: "cli/commands",
-  },
-];
+const STATIC_DOCS_MANIFEST = manifest;
 
 function parseFrontmatter(rawContent: string): {
   data: Record<string, string | number>;
@@ -105,22 +57,17 @@ export function getAllDocs(): DocMetadata[] {
   const docs: DocMetadata[] = [];
 
   for (const item of STATIC_DOCS_MANIFEST) {
-    const filePath = path.join(DOCS_DIR, item.categoryPath, item.filename);
-    try {
-      if (fs.existsSync(filePath)) {
-        const rawContent = fs.readFileSync(filePath, "utf-8");
-        const { data } = parseFrontmatter(rawContent);
+    const rawContent = docsContent[item.slug];
+    if (rawContent) {
+      const { data } = parseFrontmatter(rawContent);
 
-        docs.push({
-          slug: item.slug,
-          title: (data.title as string) || item.filename.replace(".md", ""),
-          description: (data.description as string) || "",
-          category: (data.category as string) || item.categoryPath,
-          order: typeof data.order === "number" ? data.order : 99,
-        });
-      }
-    } catch (err) {
-      console.error(`Failed reading doc ${filePath}`, err);
+      docs.push({
+        slug: item.slug,
+        title: (data.title as string) || item.filename.replace(".md", ""),
+        description: (data.description as string) || "",
+        category: (data.category as string) || item.categoryPath,
+        order: typeof data.order === "number" ? data.order : 99,
+      });
     }
   }
 
@@ -237,33 +184,22 @@ export function getDocBySlug(slugPath: string): DocArticle | null {
     return null;
   }
 
-  const filePath = path.join(
-    DOCS_DIR,
-    manifestItem.categoryPath,
-    manifestItem.filename,
-  );
-
-  try {
-    if (!fs.existsSync(filePath)) {
-      return null;
-    }
-
-    const rawContent = fs.readFileSync(filePath, "utf-8");
-    const { data, body } = parseFrontmatter(rawContent);
-    const processedBody = processMarkdownTables(body);
-    const htmlContent = micromark(processedBody, { allowDangerousHtml: true });
-
-    return {
-      slug: manifestItem.slug,
-      title: (data.title as string) || manifestItem.filename.replace(".md", ""),
-      description: (data.description as string) || "",
-      category: (data.category as string) || manifestItem.categoryPath,
-      order: typeof data.order === "number" ? data.order : 99,
-      content: htmlContent,
-      rawMarkdown: body,
-    };
-  } catch (err) {
-    console.error(`Error loading doc ${normalizedSlug}`, err);
+  const rawContent = docsContent[manifestItem.slug];
+  if (!rawContent) {
     return null;
   }
+
+  const { data, body } = parseFrontmatter(rawContent);
+  const processedBody = processMarkdownTables(body);
+  const htmlContent = micromark(processedBody, { allowDangerousHtml: true });
+
+  return {
+    slug: manifestItem.slug,
+    title: (data.title as string) || manifestItem.filename.replace(".md", ""),
+    description: (data.description as string) || "",
+    category: (data.category as string) || manifestItem.categoryPath,
+    order: typeof data.order === "number" ? data.order : 99,
+    content: htmlContent,
+    rawMarkdown: body,
+  };
 }

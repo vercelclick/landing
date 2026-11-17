@@ -13,11 +13,7 @@ Automated continuous integration runners (such as GitHub Actions, GitLab CI, Cir
 
 ## 1. Generate a Machine Access Key
 
-Generate an access key scoped strictly to a specific project and environment (e.g., `staging` or `production`):
-
-```bash
-click key create --name "github-actions-staging" --env staging --level ReadOnly
-```
+On the vault.vercel.click UI, select the desire project(local or cloud); Choose Grant access and select the necessary environment(s) (e.g., `staging` or `production`). Authorize the key generation with your finger print.
 
 Store this key as an encrypted secret in your repository settings (e.g., `CLICK_ACCESS_KEY` in GitHub Secrets).
 

@@ -17,6 +17,7 @@ import {
   IconVault,
 } from "@tabler/icons-react";
 import clsx from "clsx";
+import Link from "next/link";
 import { useState } from "react";
 
 export function HeroSection() {
@@ -124,20 +125,18 @@ export function HeroSection() {
             <IconArrowDown className="size-4 opacity-60" />
           </a>
 
-          <a
-            href="https://vercel.click/l/docs"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/docs"
             className={clsx(
               buttonVariants.base,
-              buttonVariants.variants.variant.ghost,
+              buttonVariants.variants.variant.secondary,
               buttonVariants.variants.size.lg,
               "w-full sm:w-auto text-muted hover:text-foreground",
             )}
           >
             <IconBook2 className="mr-1 size-4" />
             Docs
-          </a>
+          </Link>
         </div>
 
         {/* Cryptographic Isolation Preview Card (Complements the Architecture section) */}
