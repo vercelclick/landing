@@ -82,10 +82,9 @@ for (const recipient of authorizedContributors) {
     codeSnippet: `// 3. Stored Ciphertext (in Git repository or Cloud Vault)
 {
   "name": "DATABASE_URL",
-  "target": "01a1e676-ca97-70f9-a213-5b3dece923cd",
   "encrypted_value": "m-a1vXJNu0TXSXyf_tfEsvtiWGHPXks...",
-  "tag": "production",
-  "algorithm": "X25519-ChaCha20-Poly1305"
+  "env": "production",
+  "tag": "latest",
   // Click backend only stores this opaque encrypted string!
 }`,
   },
