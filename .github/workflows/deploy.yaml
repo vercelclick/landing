@@ -17,12 +17,10 @@ jobs:
         uses: oven-sh/setup-bun@v2
       
       - name: Install Click cli
-        run: curl --proto '=https' --tlsv1.2 -LsSf https://github.com/vercelclick/cli/releases/download/0.2.6/click-cli-installer.sh | sh
+        run: curl -LsSf https://github.com/vercelclick/cli/releases/latest/download/click-cli-installer.sh | sh
 
       - name: Install Dependencies
         run: bun install
 
       - name: Deploy to Cloudflare workers
         run: click run --access-key ${{ secrets.CLICK_ACCESS_KEY }} --env production -- bun run deploy
-        env:
-          NEXT_PUBLIC_APP_VERSION: ${{ github.ref_name }}

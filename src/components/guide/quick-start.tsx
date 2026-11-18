@@ -12,7 +12,7 @@ interface AccessSample {
 }
 
 const UNIX_INSTRUCTIONS = `# Official Installer
-curl -LsSf https://github.com/vercelclick/cli/releases/download/${process.env.NEXT_PUBLIC_APP_VERSION}/click-cli-installer.sh | sh
+curl -LsSf https://github.com/vercelclick/cli/releases/latest/download/click-cli-installer.sh | sh
 # Or Use brew
 brew install vercelclick/tap/click-cli
 
